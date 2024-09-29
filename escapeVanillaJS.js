@@ -28,8 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
             })
                     .then(message => {
                         // 🪲 Bug: Incorrect method
-                        const room3Results = document.getElementById("room3Result").textContent;
-                        message = room3Results;
+                        document.getElementById("room3Result").textContent = message;
                     });
             });
     });
@@ -41,7 +40,7 @@ function findMostRecentBook(books) {
 
 function findIntersection(setA, setB) {
     // 🪲 Bug: Incorrect logic
-    const intersection = new Set([...setA].filter(item => setB(has(item)))); // created a new set  with the intersection of the two sets
+    const intersection = new Set([...setA].filter(item => setB.has(item))); // created a new set  with the intersection of the two sets
     return intersection;
 }
 
