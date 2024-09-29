@@ -24,14 +24,15 @@ document.addEventListener("DOMContentLoaded", () => {
         fetch('directions.json') 
             .then(response => response.json())
             .then(directions => {
-                navigateLabyrinth(directions)
+                return navigateLabyrinth(directions)
+            })
                     .then(message => {
                         // 🪲 Bug: Incorrect method
-                        document.getElementById("room3Result").innerHTML = message;
+                        const room3Results = document.getElementById("room3Result").textContent;
+                        message = room3Results;
                     });
             });
     });
-});
 
 function findMostRecentBook(books) {
     // 🪲 Bug: Logic error
